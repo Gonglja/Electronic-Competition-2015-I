@@ -1,0 +1,65 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\wslibeia\Desktop\my_module_0522\1602\simulation\modelsim
+vlcd1602
+IRZ^?G;dLWG?E:6ZE?Td1M3
+Ven4YY[<lDI53djL7TlVc[3
+Z1 dC:\Users\wslibeia\Desktop\my_module_0522\1602\simulation\modelsim
+w1526988152
+8C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v
+FC:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602 -O0
+!i10b 1
+!s100 Xj1LW5d0GOMB=U5:@kV4S2
+!s85 0
+!s108 1526988180.407000
+!s107 C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602|C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v|
+!s101 -O0
+vtb
+!i10b 1
+!s100 AX@mW57iQE^AfL861cMIj1
+Ikz9dSYa3c;Mk6945M4GKl2
+VV@Xn<HnSRM[I5c1?BH]3a3
+R1
+w1526987220
+8C:/Users/wslibeia/Desktop/my_module_0522/1602/tb.v
+FC:/Users/wslibeia/Desktop/my_module_0522/1602/tb.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1526988180.500000
+!s107 C:/Users/wslibeia/Desktop/my_module_0522/1602/tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602|C:/Users/wslibeia/Desktop/my_module_0522/1602/tb.v|
+!s101 -O0
+R3
+R4
+vtop
+IACE5H^=_^16?z]>EP:ifF1
+VD]JTGl7ORQMADV=F_JQ7h1
+R1
+w1526981451
+8C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v
+FC:/Users/wslibeia/Desktop/my_module_0522/1602/top.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 Ribne^jcU76nfJXbG:D403
+!s85 0
+!s108 1526988180.455000
+!s107 C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602|C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v|
+!s101 -O0

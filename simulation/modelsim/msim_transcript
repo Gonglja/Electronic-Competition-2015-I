@@ -1,0 +1,76 @@
+# Reading D:/1/altera/13.0/modelsim_ase/tcl/vsim/pref.tcl 
+# do lcd1602_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying D:\1\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:\1\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602 {C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module lcd1602
+# 
+# Top level modules:
+# 	lcd1602
+# vlog -vlog01compat -work work +incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602 {C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/wslibeia/Desktop/my_module_0522/1602 {C:/Users/wslibeia/Desktop/my_module_0522/1602/tb.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps tb 
+# Loading work.tb
+# Loading work.top
+# Loading work.lcd1602
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data16'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(16).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data17'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(16).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data18'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(16).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data19'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(17).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data20'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(17).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data21'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(17).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data22'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(18).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data23'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(18).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data24'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(18).
+# 
+#         Region: /tb/top/u1
+# ** Warning: (vsim-3015) C:/Users/wslibeia/Desktop/my_module_0522/1602/top.v(26): [PCDPC] - Port size (8 or 8) does not match connection size (32) for port 'data25'. The port definition is at: C:/Users/wslibeia/Desktop/my_module_0522/1602/lcd1602.v(19).
+# 
+#         Region: /tb/top/u1
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1 ms
+add wave -position insertpoint sim:/tb/top/*
+run -all

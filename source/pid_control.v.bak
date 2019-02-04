@@ -1,0 +1,60 @@
+module pid_control(Clk,Rst_n,CurrentAngle,CurrentGyro,ResultOut);
+input Clk,Rst_n;
+input signed[8:0]CurrentAngle,CurrentGyro;
+output signed[16:0]ResultOut;
+
+//reg [8:0]setAngle;
+reg signed[8:0]Angle_1,Angle_2,Angle_3,Angle_4,Angle_5;
+reg signed[9:0]Angle_Tmp;
+reg signed[8:0]Gyro_1,Gyro_2;
+reg signed[9:0]Gyro_Tmp;
+
+parameter setAngle=90;
+parameter P=100,
+			 I=0,
+			 D=2;
+//角度计算
+always@(posedge Clk or negedge Rst_n)begin
+	if(!Rst_n)begin
+			Angle_1 <= 0;
+			Angle_2 <= 0;
+			Angle_3 <= 0;
+			Angle_4 <= 0;
+			Angle_5 <= 0;
+		end
+	else begin
+			Angle_1 <= Angle_2;
+			Angle_2 <= Angle_3;
+			Angle_3 <= Angle_4;
+			Angle_4 <= Angle_5;
+			Angle_5 <= CurrentAngle - setAngle;
+			Angle_Tmp <= (Angle_1+Angle_2+Angle_3+Angle_4+Angle_5)/5;
+		end
+end
+
+//
+always@(posedge Clk or negedge Rst_n)begin
+	if(!Rst_n)begin
+			Gyro_1 <= 0;
+			Gyro_2 <= 0;
+		end
+	else begin
+			Gyro_1 <= Gyro_2;
+			Gyro_2 <= CurrentGyro;
+			Gyro_Tmp <= Gyro_1 *7 +Gyro_2*3;
+			//Gyro_Tmp <=Gyro_Tmp/10;
+		end
+end
+
+//计算
+reg signed[16:0]ResultOutTmp;
+always@(posedge Clk or negedge Rst_n)begin
+	if(!Rst_n)begin
+			ResultOutTmp <= 0;
+		end
+	else begin
+			ResultOutTmp = P*Angle_Tmp*10 + D*Gyro_Tmp;
+		end
+end
+assign ResultOut=ResultOutTmp;
+endmodule

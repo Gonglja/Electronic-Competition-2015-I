@@ -1,0 +1,138 @@
+module lcd1602( 	input clk,    //50M  20ns
+						input rst_n,  
+						output reg lcd_rs,//  1:write data  0:write commmand 
+						output reg lcd_en,//  1:使能
+						output reg lcd_rw,//  1:read data   0:write data
+						output reg [7:0]lcd_date,//数据口
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////传入要显示的字符////////////////////////////////
+//第一行
+         input [7:0]data0,input [7:0]data1,input [7:0]data2,
+			input [7:0]data3,input [7:0]data4,input [7:0]data5,
+			input [7:0]data6,input [7:0]data7,input [7:0]data8,
+			input [7:0]data9,input [7:0]data10,input [7:0]data11,
+			input [7:0]data12,input [7:0]data13,input [7:0]data14,input [7:0]data15,
+//第二行
+			input [7:0]data16,input [7:0]data17,input [7:0]data18,
+			input [7:0]data19,input [7:0]data20,input [7:0]data21,
+			input [7:0]data22,input [7:0]data23,input [7:0]data24,
+			input [7:0]data25,input [7:0]data26,input [7:0]data27,
+			input [7:0]data28,input [7:0]data29,input [7:0]data30,input [7:0]data31
+);
+//-------------------------------1602command-----------------------------------//
+parameter setDisplay  = 8'h38,   //设置显示模式
+			 openDisplay = 8'h3c,   //开显示
+			 setClearScreen = 8'h01,//清屏
+			 setCursor = 8'h06;		//显示光标
+
+//产生
+//计数 50 产生1us的时钟周期
+reg [4:0]count_50;
+reg clk_50;
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n)
+		begin
+			count_50 <= 4'd0;
+			clk_50 <= 1'b0;
+		end
+		
+	else if(count_50 == 4'd49)
+		begin
+			count_50 <= 4'd0;
+			clk_50 <= 1'b1;
+		end
+		
+	else 
+		begin
+			count_50 <= count_50 + 1'd1;
+			clk_50 <= 1'b0;
+		end 
+end
+
+//计数 1000 产生20us的时钟周期
+reg [4:0]count_1000;
+reg clk_1000;
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n)
+		begin
+			count_1000 <= 4'd0;
+			clk_1000 <= 1'b0;
+		end
+		
+	else if(count_1000 == 4'd999)
+		begin
+			count_1000 <= 4'd0;
+			clk_1000 <= 1'b1;
+		end
+		
+	else 
+		begin
+			count_1000 <= count_1000 + 1'd1;
+			clk_1000 <= 1'b0;
+		end 
+end
+
+
+
+//判忙
+reg [3:0]temp;
+wire temp_highbit;
+reg state0;
+always@(posedge clk or negedge rst_n)
+begin
+	if(!rst_n)begin
+		lcd_rs <= 1'b0;
+		lcd_rw <= 1'b0;
+		state <= 1'b0;
+//		temp_highbit <= 1'b0;
+		end
+	else if(clk_50) 
+		begin
+			lcd_rs <= 1'b0;
+			lcd_rw <= 1'b1;
+			case(state0)
+				1'd0:begin
+					  lcd_date <= 4'hff;
+					  state0 <= state0 + 1'b1;
+				end
+				
+				1'd1:begin
+					  lcd_en <= 1'd1;
+					  state0 <= state0 + 1'b1;
+					  
+				end
+				
+				1'd2:begin
+					  temp <= lcd_date;
+					  state0 <= state0 + 1'b1;
+				end
+				
+				1'd3:begin
+					  lcd_en <= 1'd0;
+					  state0 <= 1'b0;
+				end	
+			endcase
+		end
+end
+assign temp_highbit = temp & 4'h80;
+
+reg [11:0]state1
+always@(posedge clk or negedge rst_n)
+begin
+	if(!rst_n)begin
+			state1 <= 1'b0;
+		   lcd_rs <= 1'b0;
+			lcd_en <= 1'b0;
+			lcd_data <= 1'b0; 
+		end
+	else if(count_1000)begin
+//			if(temp_highbit)begin
+//				
+//			end
+		
+		end
+end
+		
+
+endmodule
+
